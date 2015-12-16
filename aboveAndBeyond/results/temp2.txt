@@ -1,0 +1,3 @@
+Time elapsed = 0.308574 seconds.
+Time elapsed = 0.309879 seconds.
+Time elapsed = 2.45581 seconds.
