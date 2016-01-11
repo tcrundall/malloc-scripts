@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Runs cache-thrash.sh with a given object size iterating through
+# Runs linux-scalability.sh script with a given object size iterating through
 #  8 thread counts and all 3 implementations of malloc
 # The results are stored in temp{x}.txt files where x is the number of
 #  threads used for that benchmark
@@ -11,6 +11,6 @@ for i in {1..8}; do
   echo $i
   touch results/temp${i}.txt 
   for j in {1..3}; do
-    ./cache-thrash.sh $i $objSize $j >> results/temp${i}.txt
+    ./linux-scalability.sh $i $objSize $j >> results/temp${i}.txt
   done
 done

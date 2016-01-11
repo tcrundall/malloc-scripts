@@ -20,8 +20,8 @@ parser.add_argument('-s', '--size', dest='size', help='size of objects')
 args = parser.parse_args()
 
 if args.threads is None:
-	subprocess.call(['./cache-thrashStatsGathererThreads.sh', str(args.size)])
-	with open("results/cache-thrash" + args.size + "size.txt", 'w') as compilingFile:
+	subprocess.call(['./cache-scratchStatsGathererThreads.sh', str(args.size)])
+	with open("results/cache-scratch" + args.size + "size.txt", 'w') as compilingFile:
 		compilingFile.write("Thread count \t glib \t hoard \t tcmalloc\n")
 		for i in range(1,9):
 			resultString = str(i) + ""
@@ -34,10 +34,10 @@ if args.threads is None:
 
 
 if args.size is None:
-	subprocess.call(['./cache-thrashStatsGathererObjectSize.sh', str(args.threads)])
-	with open("results/cache-thrash" + args.threads +"threads.txt", 'w') as compilingFile:
+	subprocess.call(['./cache-scratchStatsGathererObjectSize.sh', str(args.threads)])
+	with open("results/cache-scratch" + args.threads +"threads.txt", 'w') as compilingFile:
 		compilingFile.write("ObjSize \t glib \t hoard \t tcmalloc\n")
-		for i in [2, 4, 8, 16, 32]:
+		for i in [2, 4, 8, 16, 30, 32, 64, 128]:
 			resultString = str(i) + ""
 			with open("results/temp" + str(i) + ".txt") as resultFile:
 				for line in resultFile:

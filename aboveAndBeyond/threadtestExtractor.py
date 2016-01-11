@@ -11,7 +11,7 @@ import subprocess
 #  results into a csv table titled with [benchmark][objectsize]size.txt
 #                                   or  [benchmark][threadcount]thread.txt
 
-matcher = re.compile("Time elapsed = ([0-9]+\.[0-9]+) seconds.")
+matcher = re.compile("Time elapsed = ([0-9]+\.[0-9]+)")
 
 parser = argparse.ArgumentParser()
 parser.add_argument('-t', '--threads', dest='threads', help='number of threads')
@@ -20,8 +20,8 @@ parser.add_argument('-s', '--size', dest='size', help='size of objects')
 args = parser.parse_args()
 
 if args.threads is None:
-	subprocess.call(['./cache-thrashStatsGathererThreads.sh', str(args.size)])
-	with open("results/cache-thrash" + args.size + "size.txt", 'w') as compilingFile:
+	subprocess.call(['./threadtestStatsGathererThreads.sh', str(args.size)])
+	with open("results/threadtest" + args.size + "size.txt", 'w') as compilingFile:
 		compilingFile.write("Thread count \t glib \t hoard \t tcmalloc\n")
 		for i in range(1,9):
 			resultString = str(i) + ""
@@ -34,8 +34,8 @@ if args.threads is None:
 
 
 if args.size is None:
-	subprocess.call(['./cache-thrashStatsGathererObjectSize.sh', str(args.threads)])
-	with open("results/cache-thrash" + args.threads +"threads.txt", 'w') as compilingFile:
+	subprocess.call(['./threadtestStatsGathererObjectSize.sh', str(args.threads)])
+	with open("results/threadtest" + args.threads +"threads.txt", 'w') as compilingFile:
 		compilingFile.write("ObjSize \t glib \t hoard \t tcmalloc\n")
 		for i in [2, 4, 8, 16, 32]:
 			resultString = str(i) + ""

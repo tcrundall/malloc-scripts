@@ -1,0 +1,22 @@
+sleep = 4, min = 8, max = 8, per thread = 1000, num rounds = 10000, seed = 1, max_threads = 8, min_threads = 8
+thread stopping.
+thread stopping.
+thread stopping.
+thread stopping.
+thread stopping.
+thread stopping.
+thread stopping.
+thread stopping.
+Throughput = 101627467 operations per second.
+Done sleeping...
+sleep = 4, min = 8, max = 8, per thread = 1000, num rounds = 10000, seed = 1, max_threads = 8, min_threads = 8
+thread stopping.
+thread stopping.
+thread stopping.
+thread stopping.
+thread stopping.
+thread stopping.
+thread stopping.
+thread stopping.
+Throughput = 167829458 operations per second.
+Done sleeping...
