@@ -1,3 +1,0 @@
-Time elapsed = 0.297117 seconds.
-Time elapsed = 1.771726 seconds.
-Time elapsed = 2.728473 seconds.

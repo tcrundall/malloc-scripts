@@ -21,14 +21,14 @@
 ./cache-scratchExtractor.py -s 128
 
 # cache-thrash (active-false sharing); threads: 2, 4, 8; object size: 2, 4, 8, 16, 32
-./catch-thrashExtractor.py -t 2
-./catch-thrashExtractor.py -t 4
-./catch-thrashExtractor.py -t 8
-./catch-thrashExtractor.py -o 2
-./catch-thrashExtractor.py -o 4
-./catch-thrashExtractor.py -o 8
-./catch-thrashExtractor.py -o 16
-./catch-thrashExtractor.py -o 32
+./cache-thrashExtractor.py -t 2
+./cache-thrashExtractor.py -t 4
+./cache-thrashExtractor.py -t 8
+./cache-thrashExtractor.py -o 2
+./cache-thrashExtractor.py -o 4
+./cache-thrashExtractor.py -o 8
+./cache-thrashExtractor.py -o 16
+./cache-thrashExtractor.py -o 32
 
 # larson (server replicator); threads 2, 4, 8; object size: 8, 32, 128, 512, 2048
 ./larsonExtractor.py -t 2
