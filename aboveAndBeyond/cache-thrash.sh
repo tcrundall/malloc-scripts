@@ -3,6 +3,7 @@
 # Runs cache-thrash benchmark with parameters:
 #    nthreads objectSize malloc version [1 = glib, 2 = hoard, 3 = tcmalloc]
 
+nthreads=$1
 objectSize=$2
 mallocVers=$3
 
