@@ -1,19 +1,17 @@
 #!/usr/bin/env bash
-#args: nthreads [malloc version: 1 = glib, 2 = hoard, 3 = tcmalloc]
 
-
+# Runs cache-thrash benchmark with parameters:
+#    nthreads objectSize malloc version [1 = glib, 2 = hoard, 3 = tcmalloc]
+set -x
 nthreads=$1
-mallocVers=$2
-
-#mallocLib=""
+objectSize=$2
+mallocVers=$3
 
 if [[ $mallocVers = 2 ]]; then
-  LD_PRELOAD=~/src/Hoard/src/libhoard.so ~/src/Hoard/benchmarks/cache-thrash/cache-thrash $nthreads 100 8 1000000
-  #mallocLib = "LD_PRELOAD=~/src/Hoard/src/libhoard.so"
+  LD_PRELOAD=~/src/Hoard/src/libhoard.so ~/src/Hoard/benchmarks/cache-thrash/cache-thrash $nthreads 100 $objectSize 1000000
 elif [[ $mallocVers = 3 ]]; then
-  LD_PRELOAD=~/src/gperftools/build/.libs/libtcmalloc.so ~/src/Hoard/benchmarks/cache-thrash/cache-thrash $nthreads 100 8 1000000
-#  $mallocLib = "LD_PRELOAD=~/src/gperftools/build/.libs/libtcmalloc.so"
+  LD_PRELOAD=~/src/gperftools/build/.libs/libtcmalloc.so ~/src/Hoard/benchmarks/cache-thrash/cache-thrash $nthreads 100 $objectSize 1000000
 else
-  ~/src/Hoard/benchmarks/cache-thrash/cache-thrash $nthreads 100 8 1000000 
+  ~/src/Hoard/benchmarks/cache-thrash/cache-thrash $nthreads 100 $objectSize 1000000 
 fi
 

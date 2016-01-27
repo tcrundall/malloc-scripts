@@ -9,7 +9,7 @@
 nthreads=$1
 
 rm results/temp*.txt
-for i in 2 4 8 16 30 32 64 128; do
+for i in 2 4 8 16 32 64 128; do
   echo "$i"
 
   touch results/temp${i}.txt 
