@@ -56,7 +56,7 @@ try:
   plt.loc = 2
   plt.axis([min(array[0]), max(array[0]), min(array[1] + array[3] + array[5] + [0]),
                                           max(array[1] + array[3] + array[5])])
-  plt.savefig(imageName)
+  plt.savefig('plots/' + imageName)
 except IOError:
   print "Failed: "+fileName
   pass
