@@ -45,6 +45,8 @@ try:
   plt.errorbar(array[0], array[1], yerr=array[2], fmt='--ro', label='glib')     # mean times of glib
   plt.errorbar(array[0], array[3], yerr=array[4], fmt='--yo', label='Hoard')    # mean times of hoard
   plt.errorbar(array[0], array[5], yerr=array[6], fmt='--bo', label='tcMalloc') # mean times of tcmalloc
+  plt.errorbar(array[0], array[7], yerr=array[8], fmt='--mo', label='edited-tcM') # mean times of tcmalloc
+
 
   #plt.errorbar(array[0], array[1], yerr=array[2])
   #plt.errorbar(array[0], array[3], yerr=array[4])
