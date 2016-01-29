@@ -1,4 +1,4 @@
-results/temp*.txt
+results/*
 aboveAndBeyond/results/temp*.txt
 *.swp
 
