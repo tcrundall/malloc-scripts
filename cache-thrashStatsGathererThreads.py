@@ -12,7 +12,7 @@ args = parser.parse_args()
 
 for i in range(1, 9):
   with open("results/temp" + str(i) + ".txt", 'w') as writeFile:
-    for j in range(0, 4):
+    for j in range(0, 5):
       subprocess.call(['./cache-thrash.py', '-t', str(i), '-s', str(args.size),
                                             '-v', str(j), '-i', str(args.iterations)])
       with open("results/temp.txt", 'r') as tempFile:

@@ -41,7 +41,11 @@ try:
       for i in range(len(data)):
         array[i].append(float(data[i]))
 
-  plt.ylabel('time (s)')
+  if (args.benchmark == "larson"):
+    plt.ylabel('Throughput')
+  else:
+    plt.ylabel('time (s)')
+
   plt.errorbar(array[0], array[1], yerr=array[2], fmt='--ro', label='glib')     # mean times of glib
   plt.errorbar(array[0], array[3], yerr=array[4], fmt='--yo', label='Hoard')    # mean times of hoard
   plt.errorbar(array[0], array[5], yerr=array[6], fmt='--bo', label='tcMalloc') # mean times of tcmalloc
