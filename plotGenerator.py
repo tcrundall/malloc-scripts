@@ -52,7 +52,7 @@ try:
   #plt.errorbar(array[0], array[3], yerr=array[4])
   #plt.errorbar(array[0], array[5], yerr=array[6])
 
-  plt.legend(loc=2)
+  plt.legend(loc=2) 
   plt.loc = 2
   plt.axis([min(array[0]), max(array[0]), min(array[1] + array[3] + array[5] + [0]),
                                           max(array[1] + array[3] + array[5])])
