@@ -28,7 +28,7 @@ if args.threads is None:
                          '-i', str(args.iterations)])
   with open("results/cache-thrash" + args.size + "size.txt", 'w') as compilingFile:
     compilingFile.write("Thread count\tglib\tstdev\thoard\tstdev\t" + \
-                        "tcmalloc\tstdev\ttcmalloc-edited\tstdev\tscalloc\t\stdev\n")
+                        "tcmalloc\tstdev\ttcmalloc-edited\tstdev\tscalloc\tstdev\n")
     for i in range(1,9):
       resultString = str(i) + ""
       with open("results/temp" + str(i) + ".txt") as resultFile:

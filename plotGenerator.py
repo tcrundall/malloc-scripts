@@ -24,7 +24,7 @@ if args.threads is None:
 
 if args.size is None:
   fileName = 'results/'+str(args.benchmark)+str(args.threads)+'threads.txt'
-  imageName =  str(args.benchmark)+benchMachine.capitalize()+str(args.threads)+'size'
+  imageName =  str(args.benchmark)+benchMachine.capitalize()+str(args.threads)+'threads'
   plt.xlabel('object size')
   plt.title(str(args.benchmark).capitalize()+' on '+benchMachine.capitalize()+\
            ' Architecture with Thread Count '+str(args.threads))
@@ -49,9 +49,9 @@ try:
   plt.errorbar(array[0], array[1], yerr=array[2], fmt='--ro', label='glib')     # mean times of glib
   plt.errorbar(array[0], array[3], yerr=array[4], fmt='--yo', label='Hoard')    # mean times of hoard
   plt.errorbar(array[0], array[5], yerr=array[6], fmt='--bo', label='tcMalloc') # mean times of tcmalloc
-  plt.errorbar(array[0], array[7], yerr=array[8], fmt='--mo', label='edited-tcM') # mean times of tcmalloc
-
-
+  plt.errorbar(array[0], array[7], yerr=array[8], fmt='--mo', label='edited-tcM') # mean times of tcmalloc-edited
+  plt.errorbar(array[0], array[9], yerr=array[10], fmt='--go', label='scalloc') # mean times of scalloc
+  
   #plt.errorbar(array[0], array[1], yerr=array[2])
   #plt.errorbar(array[0], array[3], yerr=array[4])
   #plt.errorbar(array[0], array[5], yerr=array[6])

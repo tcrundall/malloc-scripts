@@ -12,7 +12,7 @@ args = parser.parse_args()
 
 for i in [2, 4, 8, 16, 32, 64]:
   with open("results/temp" + str(i) + ".txt", 'w') as writeFile:
-    for j in range(0, 4):
+    for j in range(0, 5):
       subprocess.call(['./cache-scratch.py', '-t', str(args.threads), '-s', str(i),
                                              '-v', str(j),            '-i', str(args.iterations)])
       with open("results/temp.txt", 'r') as tempFile:

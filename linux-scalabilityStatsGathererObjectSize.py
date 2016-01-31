@@ -12,11 +12,10 @@ args = parser.parse_args()
 
 for i in [8, 16, 32, 64, 128, 256]:
   with open("results/temp" + str(i) + ".txt", 'w') as writeFile:
-    for j in range(0, 4):
+    for j in range(0, 5):
       subprocess.call(['./linux-scalability.py', 
             '-t', str(args.threads), '-s', str(i),
             '-v', str(j),            '-i', str(args.iterations)])
       with open("results/temp.txt", 'r') as tempFile:
         line = tempFile.readline()
-#        print("read line is: " + line)
         writeFile.write(line)

@@ -20,7 +20,7 @@ parser.add_argument('-i', '--iterations', dest='iterations', help='number of ite
 
 args = parser.parse_args()
 
-subprocess.call(['rm', 'results/*'])
+subprocess.call(['rm', '/results/temp*'])
 
 if args.threads is None:
   subprocess.call(['./cache-scratchStatsGathererThreads.py',
@@ -28,8 +28,9 @@ if args.threads is None:
                          '-i', str(args.iterations)])
   with open("results/cache-scratch" + args.size + "size.txt", 'w') as compilingFile:
     compilingFile.write("Thread count\tglib\tstdev\thoard\tstdev\t" + \
-                        "tcmalloc\tstdev\ttcmalloc-edited\tstdev\n")
+                        "tcmalloc\tstdev\ttcmalloc-edited\tstdev\tscalloc\t\stdev\n")
     for i in range(1,9):
+      print("Running with " + str(i) + " threads.\n")
       resultString = str(i) + ""
       with open("results/temp" + str(i) + ".txt") as resultFile:
         for line in resultFile:
@@ -45,8 +46,9 @@ if args.size is None:
                         '-i', str(args.iterations)])
   with open("results/cache-scratch" + args.threads + "threads.txt", 'w') as compilingFile:
     compilingFile.write("Thread count\tglib\tstdev\thoard\tstdev\t" + \
-                        "tcmalloc\tstdev\ttcmalloc-edited\tstdev\n")
+                        "tcmalloc\tstdev\ttcmalloc-edited\tstdev\tscalloc\t\stdev\n")
     for i in [2, 4, 8, 16, 32, 64]:
+      print("Running with " + str(i) + " byte objects\n")
       resultString = str(i) + ""
       with open("results/temp" + str(i) + ".txt") as resultFile:
 
