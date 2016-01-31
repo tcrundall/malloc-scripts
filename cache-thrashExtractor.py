@@ -22,6 +22,9 @@ args = parser.parse_args()
 
 subprocess.call(['rm', 'results/*'])
 
+if not (args.threads is None) and not (args.size is None):
+  print("Usage: you may only set either threads or size")
+
 if args.threads is None:
   subprocess.call(['./cache-thrashStatsGathererThreads.py',
                          '-s', str(args.size),
