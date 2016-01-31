@@ -11,6 +11,7 @@ args = parser.parse_args()
 
 
 for i in [8, 16, 32, 64, 128, 256]:
+  print("Running with " + str(i) + " byte objects\n")
   with open("results/temp" + str(i) + ".txt", 'w') as writeFile:
     for j in range(0, 5):
       subprocess.call(['./linux-scalability.py', 

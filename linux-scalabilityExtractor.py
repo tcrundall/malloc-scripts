@@ -11,8 +11,6 @@ import subprocess
 #  results into a csv table titled with [benchmark][objectsize]size.txt
 #                                   or  [benchmark][threadcount]thread.txt
 
-matcher = re.compile("Time elapsed = ([0-9]+\.[0-9]+) seconds.")
-
 parser = argparse.ArgumentParser()
 parser.add_argument('-t', '--threads', dest='threads', help='number of threads')
 parser.add_argument('-s', '--size', dest='size', help='size of objects')
@@ -20,7 +18,8 @@ parser.add_argument('-i', '--iterations', dest='iterations', help='number of ite
 
 args = parser.parse_args()
 
-subprocess.call(['rm', 'results/*'])
+if not (args.threads is None) and not (args.size is None):
+  print("Usage: you may only set either threads or size")
 
 if args.threads is None:
   subprocess.call(['./linux-scalabilityStatsGathererThreads.py',
@@ -28,7 +27,7 @@ if args.threads is None:
                          '-i', str(args.iterations)])
   with open("results/linux-scalability" + args.size + "size.txt", 'w') as compilingFile:
     compilingFile.write("Thread count\tglib\tstdev\thoard\tstdev\t" + \
-                        "tcmalloc\tstdev\ttcmalloc-edited\tstdev\tscalloc\t\stdev\n")
+                        "tcmalloc\tstdev\ttcmalloc-edited\tstdev\tscalloc\tstdev\n")
     for i in range(1,9):
       resultString = str(i) + ""
       with open("results/temp" + str(i) + ".txt") as resultFile:
@@ -45,7 +44,7 @@ if args.size is None:
                         '-i', str(args.iterations)])
   with open("results/linux-scalability" + args.threads + "threads.txt", 'w') as compilingFile:
     compilingFile.write("Thread count\tglib\tstdev\thoard\tstdev\t" + \
-                        "tcmalloc\tstdev\ttcmalloc-edited\tstdev\tscalloc\t\stdev\n")
+                        "tcmalloc\tstdev\ttcmalloc-edited\tstdev\tscalloc\tstdev\n")
     for i in [8, 16, 32, 64, 128, 256]:
       resultString = str(i) + ""
       with open("results/temp" + str(i) + ".txt") as resultFile:

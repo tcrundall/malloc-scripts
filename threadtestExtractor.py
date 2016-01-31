@@ -22,10 +22,10 @@ if not (args.threads is None) and not (args.size is None):
   print("Usage: you may only set either threads or size")
 
 if args.threads is None:
-  subprocess.call(['./cache-thrashStatsGathererThreads.py',
+  subprocess.call(['./threadtestStatsGathererThreads.py',
                          '-s', str(args.size),
                          '-i', str(args.iterations)])
-  with open("results/cache-thrash" + args.size + "size.txt", 'w') as compilingFile:
+  with open("results/threadtest" + args.size + "size.txt", 'w') as compilingFile:
     compilingFile.write("Thread count\tglib\tstdev\thoard\tstdev\t" + \
                         "tcmalloc\tstdev\ttcmalloc-edited\tstdev\tscalloc\tstdev\n")
     for i in range(1,9):
@@ -39,13 +39,13 @@ if args.threads is None:
 
 
 if args.size is None:
-  subprocess.call(['./cache-thrashStatsGathererObjectSize.py', 
+  subprocess.call(['./threadtestStatsGathererObjectSize.py', 
                         '-t', str(args.threads),
                         '-i', str(args.iterations)])
-  with open("results/cache-thrash" + args.threads + "threads.txt", 'w') as compilingFile:
+  with open("results/threadtest" + args.threads + "threads.txt", 'w') as compilingFile:
     compilingFile.write("Thread count\tglib\tstdev\thoard\tstdev\t" + \
                         "tcmalloc\tstdev\ttcmalloc-edited\tstdev\tscalloc\tstdev\n")
-    for i in [2, 4, 8, 16, 32, 64]:
+    for i in [2, 4, 8, 16, 32]:
       resultString = str(i) + ""
       with open("results/temp" + str(i) + ".txt") as resultFile:
 

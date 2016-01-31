@@ -11,11 +11,11 @@ args = parser.parse_args()
 
 
 for i in [2, 4, 8, 16, 32, 64]:
+  print("Running with " + str(i) + " byte objects\n")
   with open("results/temp" + str(i) + ".txt", 'w') as writeFile:
     for j in range(0, 5):
       subprocess.call(['./cache-thrash.py', '-t', str(args.threads), '-s', str(i),
                                             '-v', str(j),            '-i', str(args.iterations)])
       with open("results/temp.txt", 'r') as tempFile:
         line = tempFile.readline()
-        print("read line is: " + line)
         writeFile.write(line)
