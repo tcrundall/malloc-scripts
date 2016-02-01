@@ -20,12 +20,8 @@ versionList = ["", \
   "/home/tcrundall/src/gperftools/build/.libs/libtcmalloc.so", \
   "/home/tcrundall/src/gperftools-edited/build/.libs/libtcmalloc.so", \
   "/home/tcrundall/src/scalloc/out/libscalloc-x86_64.so"]
-#  "/home/tcrundall/src/gperftools-edited/build/.libs/libtcmalloc.so"] 
 
 benchmark = "/home/tcrundall/src/Hoard/benchmarks/cache-thrash/cache-thrash"
-
-#print(versionList[int(args.version)])
-#print(args)
 
 env = os.environ.copy()
 env['LD_PRELOAD'] = versionList[int(args.version)]
@@ -40,9 +36,9 @@ with open("results/temp.txt", 'w') as tempFile:
 results = []
 with open("results/temp.txt", 'r') as tempFile:
   for line in tempFile:
-    results.append(float(matcher.match(line).group(1)))
-
-#print(results)
+    timeElapsed = matcher.match(line)
+    if timeElapsed:
+      results.append(float(timeElapsed.group(1))) 
 
 average = statistics.mean(results)
 stdev = statistics.stdev(results)
