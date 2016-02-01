@@ -9,9 +9,9 @@ parser.add_argument('-i', '--iterations', dest='iterations', help='number of ite
 
 args = parser.parse_args()
 
-
+print("Running larson with fixed " + str(args.threads) + " threads")
 for i in [2, 8, 16, 64, 256, 1024]:
-  print("Running with " + str(i) + " byte objects\n")
+  print("-- Running with " + str(i) + " byte objects")
   with open("results/temp" + str(i) + ".txt", 'w') as writeFile:
     for j in range(0, 5):
       subprocess.call(['./larson.py', '-t', str(args.threads), '-m', str(i - 1),

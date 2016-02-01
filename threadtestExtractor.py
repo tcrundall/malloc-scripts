@@ -33,7 +33,6 @@ if args.threads is None:
       with open("results/temp" + str(i) + ".txt") as resultFile:
         for line in resultFile:
           results = (line.strip()).split('\t')
-          print(results)
           resultString = resultString + '\t' + results[0] + '\t' + results[1]
       compilingFile.write(resultString + '\n')      
 
@@ -51,6 +50,5 @@ if args.size is None:
 
         for line in resultFile:
           results = (line.strip()).split('\t')
-          print(results)
           resultString = resultString + '\t' + results[0] + '\t' + results[1]
       compilingFile.write(resultString + '\n')

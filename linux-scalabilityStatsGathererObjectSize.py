@@ -9,9 +9,9 @@ parser.add_argument('-i', '--iterations', dest='iterations', help='number of ite
 
 args = parser.parse_args()
 
-
+print("Running linux-scalability with fixed " + str(args.threads) + " threads")
 for i in [8, 16, 32, 64, 128, 256]:
-  print("Running with " + str(i) + " byte objects\n")
+  print("-- Running with " + str(i) + " byte objects")
   with open("results/temp" + str(i) + ".txt", 'w') as writeFile:
     for j in range(0, 5):
       subprocess.call(['./linux-scalability.py', 

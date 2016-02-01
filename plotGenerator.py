@@ -25,7 +25,8 @@ if args.threads is None:
 if args.size is None:
   fileName = 'results/'+str(args.benchmark)+str(args.threads)+'threads.txt'
   imageName =  str(args.benchmark)+benchMachine.capitalize()+str(args.threads)+'threads'
-  plt.xlabel('object size')
+  plt.xlabel('object size (bytes)')
+  plt.semilogx(basex=2)
   plt.title(str(args.benchmark).capitalize()+' on '+benchMachine.capitalize()+\
            ' Architecture with Thread Count '+str(args.threads))
 
