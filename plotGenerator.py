@@ -49,14 +49,16 @@ try:
 
   plt.errorbar(array[0], array[1], yerr=array[2], fmt='--ro', label='glib')     # mean times of glib
   plt.errorbar(array[0], array[3], yerr=array[4], fmt='--yo', label='Hoard')    # mean times of hoard
-  plt.errorbar(array[0], array[5], yerr=array[6], fmt='--bo', label='tcMalloc') # mean times of tcmalloc
-  plt.errorbar(array[0], array[7], yerr=array[8], fmt='--mo', label='edited-tcM') # mean times of tcmalloc-edited
+  plt.errorbar(array[0], array[5], yerr=array[6], fmt='--bo', label='TCMalloc') # mean times of tcmalloc
+  plt.errorbar(array[0], array[7], yerr=array[8], fmt='--mo', label='edited-TCM') # mean times of tcmalloc-edited
   plt.errorbar(array[0], array[9], yerr=array[10], fmt='--go', label='scalloc') # mean times of scalloc
   
   plt.legend(loc=2) 
   plt.loc = 2
-  plt.axis([min(array[0]), max(array[0]), min(array[1] + array[3] + array[5] + array[7] + array [9] + [0]),
-                                          max(array[1] + array[3] + array[5] + array[7] + array [9])])
+  minimumy = min(array[1] + array[3] + array[5] + array[7] + array [9] + [0])
+  maximumy = max(array[1] + array[3] + array[5] + array[7] + array [9]) #data point
+  maximumy = maximumy * 1.6  #leaves space for legend/error bars
+  plt.axis([min(array[0]), max(array[0]), minimumy, maximumy]) 
   plt.savefig('plots/' + imageName)
 except IOError:
   print "Failed: "+fileName
