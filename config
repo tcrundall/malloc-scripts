@@ -14,7 +14,7 @@ with open("config.txt", 'r') as f:
     print(scallocPath)
     benchmarkPath = f.readline().strip()
 
-fileList = ["cache-scratch.py"]#, "cache-thrash.py", "larson.py", "linux-scalability.py"]
+fileList = ["cache-scratch.py", "cache-thrash.py", "larson.py", "linux-scalability.py", "threadtest.py"]
 
 for file in fileList:
     f = open(file,'r')
