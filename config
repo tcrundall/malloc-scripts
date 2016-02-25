@@ -5,13 +5,9 @@ subprocess.call(["./setup.sh"])
 
 with open("config.txt", 'r') as f:
     hoardPath = f.readline().strip()
-    print(hoardPath)
     tcMallocPath = f.readline().strip()
-    print(tcMallocPath)
     editTcMallocPath = f.readline().strip()
-    print(editTcMallocPath)
     scallocPath = f.readline().strip()
-    print(scallocPath)
     benchmarkPath = f.readline().strip()
 
 fileList = ["cache-scratch.py", "cache-thrash.py", "larson.py", "linux-scalability.py", "threadtest.py"]
