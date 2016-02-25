@@ -41,5 +41,3 @@ cp out/Release/lib.target/libscalloc.so out/libscalloc-x86_64.so
 cd ..
 
 git clone https://github.com/tcrundall/malloc-scripts.git
-cd malloc-scripts
-./masterScript.sh

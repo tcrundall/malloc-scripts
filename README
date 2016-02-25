@@ -14,3 +14,12 @@ There is a build script included to (hopefully) automate that process but only t
 Only once each installation is perfectly installed should one run the config file. The config file will locate the required .so files and insert the appropriate paths into the scripts.
 
 The EXTRACTOR scripts are the ones you want. The results of each Extractor run will end up in results as a tab separated text file. PlotGenerator can then be used to produce a pretty plot.
+
+If things go perfectly:
+  git clone https://github.com/tcrundall/malloc-scripts.git
+  move buildScript.sh to directory you wish your malloc installations to go
+  cd to said directory
+  ./buildScript.sh
+  cd back to malloc-scripts
+  ./config
+  enjoy!
