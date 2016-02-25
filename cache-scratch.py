@@ -15,13 +15,9 @@ parser.add_argument('-i', '--iterations', dest='iterations', help='number of ite
 
 args = parser.parse_args()
 
-versionList = ["", \
-  "/home/tcrundall/src/Hoard/src/libhoard.so", \
-  "/home/tcrundall/src/gperftools/build/.libs/libtcmalloc.so", \
-  "/home/tcrundall/src/gperftools-edited/build/.libs/libtcmalloc.so", \
-  "/home/tcrundall/src/scalloc/out/libscalloc-x86_64.so"]
+versionList = ["", "/students/u5018130/Documents/3710/Hoard/src/libhoard.so", "/students/u5018130/Documents/3710/gperftools/build/.libs/libtcmalloc.so", "/students/u5018130/Documents/3710/gperftools-edited/build/.libs/libtcmalloc.so", "/students/u5018130/Documents/3710/scalloc/out/Release/lib.target/libscalloc.so"]
 
-benchmark = "/home/tcrundall/src/Hoard/benchmarks/cache-scratch/cache-scratch"
+benchmark = "/students/u5018130/Documents/3710/Hoard/benchmarks/cache-scratch/cache-scratch"
 
 env = os.environ.copy()
 env['LD_PRELOAD'] = versionList[int(args.version)]

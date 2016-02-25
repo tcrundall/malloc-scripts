@@ -16,7 +16,7 @@ parser.add_argument('-i', '--iterations', dest='iterations', help='number of ite
 args = parser.parse_args()
 
 versionList = ["", \
-  "/home/tcrundall/src/Hoard/src/libhoard.so", \
+  "HOARD_PATH", \
   "/home/tcrundall/src/gperftools/build/.libs/libtcmalloc.so", \
   "/home/tcrundall/src/gperftools-edited/build/.libs/libtcmalloc.so", \
   "/home/tcrundall/src/scalloc/out/libscalloc-x86_64.so"]
