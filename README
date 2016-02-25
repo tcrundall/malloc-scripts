@@ -1,13 +1,13 @@
-Welcome to my benchmark automated testing suite.
+# Welcome to my benchmark automated testing suite.
 
 Please note that these scripts were written initially for personal use
 Although some support has been provided to make the scripts available, the config file is not very robust.
 
 My benchmark automated testing suite relies on 4 installations of various mallocs:
-  TCMalloc
-  my edited TCMalloc
-  Scalloc
-  Hoard
+- TCMalloc
+- my edited TCMalloc
+- Scalloc
+- Hoard
 
 There is a build script included to (hopefully) automate that process but only tested on a single ubuntu distribution.
 
@@ -16,10 +16,10 @@ Only once each installation is perfectly installed should one run the config fil
 The EXTRACTOR scripts are the ones you want. The results of each Extractor run will end up in results as a tab separated text file. PlotGenerator can then be used to produce a pretty plot.
 
 If things go perfectly:
-  git clone https://github.com/tcrundall/malloc-scripts.git
-  move buildScript.sh to directory you wish your malloc installations to go
-  cd to said directory
-  ./buildScript.sh
-  cd back to malloc-scripts
-  ./config
-  enjoy!
+- git clone https://github.com/tcrundall/malloc-scripts.git
+- move buildScript.sh to directory you wish your malloc installations to go
+- cd to said directory
+- ./buildScript.sh
+- cd back to malloc-scripts
+- ./config
+- enjoy!
