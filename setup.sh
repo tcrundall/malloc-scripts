@@ -4,7 +4,7 @@ HOARD_PATH="$(find ~ -name "libhoard.so")"
 TCMALLOC_PATH="$(find ~ -path *gperftools/build/.libs/libtcmalloc.so)"
 EDIT_TCMALLOC_PATH="$(find ~ -path *gperftools-edited/build/.libs/libtcmalloc.so)"
 SCALLOC_PATH="$(find ~ -path *lib.target/libscalloc.so)"
-BENCHMARK_PATH="$(find ~ -name "Hoard")"
+BENCHMARK_PATH="$(find ~ -path *Hoard/benchmarks)"
 
 count=0
 rm config.txt
